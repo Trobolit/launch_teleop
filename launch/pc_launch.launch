@@ -1,8 +1,4 @@
 <launch>
- 
-  <!-- change ip -->
-   <env name="ROS_IP" value="10.9.0.2"/>
-   <env name="ROS_MASTER_URI" value="http://10.9.0.3:11311"/>
 
   <!-- joy node -->
    <node respawn="true" pkg="joy" type="joy_node" name="joy">
@@ -12,8 +8,14 @@
    <param name="default_trig_val" value="true"/>
   </node>
 
-	<!-- RViz lidar -->
-	<node pkg="rviz" type="rviz" name="rvis_lidar"
+  <!-- RViz lidar -->
+   <node pkg="rviz" type="rviz" name="rvis_lidar"
 	args="-d $(find launch_teleop)/rviz/lidar_rviz.rviz" />
+
+
+  <!-- control panel node -->
+   <node pkg="control_panel" type="control_panel_node.py" name="control_panel">
+  </node>
+
 </launch>
 
