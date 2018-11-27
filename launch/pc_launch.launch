@@ -6,7 +6,7 @@
 
   <!-- joy node -->
    <node respawn="true" pkg="joy" type="joy_node" name="joy">
-   <param name="deadzone" value="0.05"/>
+   <param name="deadzone" value="0.07"/>
    <param name="autorepeat_rate" value="20"/>
    <param name="coalesce_interval" value="0.05"/>
    <param name="default_trig_val" value="true"/>
@@ -15,5 +15,8 @@
 	<!-- RViz lidar -->
 	<node pkg="rviz" type="rviz" name="rvis_lidar"
 	args="-d $(find launch_teleop)/rviz/lidar_rviz.rviz" />
+
+	<!-- hector map -->
+	<include file="$(find hector_slam_launch)/launch/myugv.launch"/>
 </launch>
 
