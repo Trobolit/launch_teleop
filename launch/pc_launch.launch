@@ -1,8 +1,6 @@
+<?xml version="1.0"?>
+
 <launch>
- 
-  <!-- change ip -->
-   <env name="ROS_IP" value="10.9.0.2"/>
-   <env name="ROS_MASTER_URI" value="http://10.9.0.3:11311"/>
 
   <!-- joy node -->
    <node respawn="true" pkg="joy" type="joy_node" name="joy">
@@ -12,11 +10,20 @@
    <param name="default_trig_val" value="true"/>
   </node>
 
-	<!-- RViz lidar -->
-	<node pkg="rviz" type="rviz" name="rvis_lidar"
+  <!-- RViz lidar -->
+   <node pkg="rviz" type="rviz" name="rvis_lidar"
 	args="-d $(find launch_teleop)/rviz/lidar_rviz.rviz" />
 
 	<!-- hector map -->
 	<include file="$(find hector_slam_launch)/launch/myugv.launch"/>
+
+  <!-- control panel node -->
+   <node pkg="control_panel" type="control_panel_node.py" name="control_panel">
+  </node>
+
+	<!-- referns node -->
+	<node pkg="referens_node" type="referens_node" name="referens">
+	</node>
+
 </launch>
 
